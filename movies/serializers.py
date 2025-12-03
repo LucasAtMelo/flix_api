@@ -12,8 +12,8 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate_release_date(self, value):
-        if value.date > 1950:
-            raise serializers.ValidationError('A data não pode ser anterior a 1990.')
+        if value.year < 1950:
+            raise serializers.ValidationError('A data não pode ser anterior a 1950.')
         return value
 
     def validate_resume(self, value):
