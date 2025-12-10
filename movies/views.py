@@ -29,7 +29,7 @@ class MovieRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
 class MovieStatsView(views.APIView):
     permission_classes = (IsAuthenticated, GlobalDefaultPermission)
-    query_set = Movie.objects.all()
+    queryset = Movie.objects.all()
 
     def get(self, request):
         total_movies = self.query_set.count()
